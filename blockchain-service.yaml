@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blockchain-service
+spec:
+  selector:
+    matchLabels:
+      app: blockchain-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blockchain-service
+    spec:
+      containers:
+      - name: blockchain-service
+        image: blockchain_service
+        ports:
+        - containerPort: 4001
+        imagePullPolicy: Never
